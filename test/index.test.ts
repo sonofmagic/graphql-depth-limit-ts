@@ -1,12 +1,11 @@
-import { foo, wait } from '@/index'
+import depthLimit from '@/index'
+import {
+  parse,
+  TypeInfo,
+  visit,
+  visitWithTypeInfo,
+  validate,
+  specifiedRules
+} from 'graphql'
 
-describe('[Default]', () => {
-  test('foo should be bar', () => {
-    expect(foo).toBe('bar')
-  })
-
-  test('wait 100ms', async () => {
-    const flag = await wait(100)
-    expect(flag).toBe(true)
-  })
-})
+describe('[Default]', () => {})

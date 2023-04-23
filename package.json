@@ -1,7 +1,7 @@
 {
-  "name": "npm-lib-rollup-template",
+  "name": "graphql-depth-limit-ts",
   "version": "1.0.0",
-  "description": "npm-lib-rollup-template",
+  "description": "Limit the complexity of your GraphQL queries based on depth.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "types/index.d.ts",
@@ -22,7 +22,7 @@
   "packageManager": "pnpm@7.16.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sonofmagic/npm-lib-rollup-template.git"
+    "url": "git+https://github.com/sonofmagic/graphql-depth-limit-ts.git"
   },
   "files": [
     "dist",
@@ -32,13 +32,26 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "keywords": [],
+  "keywords": [
+    "graphql",
+    "complexity",
+    "esm",
+    "cjs",
+    "typescript",
+    "dts",
+    "query",
+    "depth",
+    "limit"
+  ],
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sonofmagic/npm-lib-rollup-template/issues"
+    "url": "https://github.com/sonofmagic/graphql-depth-limit-ts/issues"
   },
-  "homepage": "https://github.com/sonofmagic/npm-lib-rollup-template#readme",
+  "homepage": "https://github.com/sonofmagic/graphql-depth-limit-ts#readme",
+  "peerDependencies": {
+    "graphql": "*"
+  },
   "devDependencies": {
     "@icebreakers/eslint-config-ts": "^1.0.4",
     "@rollup/plugin-alias": "^5.0.0",
@@ -53,10 +66,12 @@
     "@types/lodash": "^4.14.194",
     "@types/lodash-es": "^4.17.7",
     "@types/node": "^18.16.0",
+    "arrify": "^3.0.0",
     "cross-env": "^7.0.3",
     "defu": "^6.1.2",
     "del": "^6.1.1",
     "eslint": "8.39.0",
+    "graphql": "^16.6.0",
     "jest": "^29.5.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",

@@ -75,7 +75,7 @@ const config: RollupOptions = {
     commonjs(),
     typescript({ tsconfig: './tsconfig.build.json', sourceMap: isDev })
   ],
-  external: [...(dependencies ? Object.keys(dependencies) : [])]
+  external: [...(dependencies ? Object.keys(dependencies) : []), 'graphql']
 }
 
 export default config

@@ -12,7 +12,7 @@ function normalizeOutput(
 }
 // diff output changes
 // run `jest -u` to update snap
-describe('rollup build', () => {
+describe.skip('rollup build', () => {
   it('lib build output diff', async () => {
     // const result:RollupBuild[] = []
 

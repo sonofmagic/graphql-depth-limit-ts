@@ -14,10 +14,12 @@ specifiers:
   '@types/lodash': ^4.14.194
   '@types/lodash-es': ^4.17.7
   '@types/node': ^18.16.0
+  arrify: ^3.0.0
   cross-env: ^7.0.3
   defu: ^6.1.2
   del: ^6.1.1
   eslint: 8.39.0
+  graphql: ^16.6.0
   jest: ^29.5.0
   lodash: ^4.17.21
   lodash-es: ^4.17.21
@@ -47,10 +49,12 @@ devDependencies:
   '@types/lodash': 4.14.194
   '@types/lodash-es': 4.17.7
   '@types/node': 18.16.0
+  arrify: 3.0.0
   cross-env: 7.0.3
   defu: 6.1.2
   del: 6.1.1
   eslint: 8.39.0
+  graphql: 16.6.0
   jest: 29.5.0_nos7cth4dsekhy4fgueg2u3gjm
   lodash: 4.17.21
   lodash-es: 4.17.21
@@ -1370,6 +1374,11 @@ packages:
       es-shim-unscopables: 1.0.0
     dev: true
 
+  /arrify/3.0.0:
+    resolution: {integrity: sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==}
+    engines: {node: '>=12'}
+    dev: true
+
   /available-typed-arrays/1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
@@ -2497,6 +2506,11 @@ packages:
 
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
+    dev: true
+
+  /graphql/16.6.0:
+    resolution: {integrity: sha512-KPIBPDlW7NxrbT/eh4qPXz5FiFdL5UbaA0XUNz2Rp3Z3hqBSkbj0GVjwFDztsWVauZUWsbKHgMg++sk8UX0bkw==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
     dev: true
 
   /has-bigints/1.0.2:
