@@ -8,7 +8,8 @@ import {
   ValidationContext,
   ASTNode
 } from 'graphql'
-import arrify from 'arrify'
+
+import arrify from './arrify'
 
 export type IgnoreItem = string | RegExp | ((queryDepths: any) => boolean)
 // https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/graphql-depth-limit/index.d.ts
