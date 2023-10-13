@@ -217,10 +217,10 @@ Now the evil query from before will tell the client this:
 }
 ```
 
-## Future Work
+<!-- ## Future Work
 
 - [ ] Type-specific sub-depth limits, e.g. you can only descend 3 levels from an `Album` type, 5 levels from the `User` type, etc.
-- [ ] More customization options, like custom errors.
+- [ ] More customization options, like custom errors. -->
 
 ## Documentation
 
