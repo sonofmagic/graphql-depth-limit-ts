@@ -191,7 +191,10 @@ The third argument is a callback which receives an `Object` which is a map of th
 ```js
 depthLimit(
   10,
-  { ignore: [ /_trusted$/, 'idontcare' ] },
+  { 
+    ignore: [ /_trusted$/, 'idontcare' ],
+    cursorConnectionSpecSupport: true
+  },
   depths => console.log(depths)
 )
 ```
@@ -235,4 +238,5 @@ Creates a validator for the GraphQL query depth
 | maxDepth | <code>Number</code> | The maximum allowed depth for any operation in a GraphQL document. |
 | [options] | <code>Object</code> |  |
 | options.ignore | <code>String</code> \| <code>RegExp</code> \| <code>function</code> | Stops recursive depth checking based on a field name. Either a string or regexp to match the name, or a function that reaturns a boolean. |
+| options.cursorConnectionSpecSupport | <code>Boolean</code> | If set to <code>true</code>, [GraphQL Cursor Connections Specification](https://relay.dev/graphql/connections.htm) query structures with <code>edges</code> and <code>edges.node</code> fields are counted as one depth level instead of three. If enabled, do not use these field names anywhere else in your schema! |
 | [callback] | <code>function</code> | Called each time validation runs. Receives an Object which is a map of the depths for each operation. |

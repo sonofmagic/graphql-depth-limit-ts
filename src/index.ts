@@ -6,7 +6,8 @@ import {
   FragmentDefinitionNode,
   OperationDefinitionNode,
   ValidationContext,
-  ASTNode
+  ASTNode,
+  FieldNode
 } from 'graphql'
 
 import arrify from './arrify'
@@ -15,6 +16,7 @@ export type IgnoreItem = string | RegExp | ((queryDepths: any) => boolean)
 // https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/graphql-depth-limit/index.d.ts
 export interface Options {
   ignore?: IgnoreItem | IgnoreItem[]
+  cursorConnectionSpecSupport?: boolean
 }
 
 const depthLimit =
@@ -80,7 +82,8 @@ function determineDepth(
   maxDepth: number,
   context: ValidationContext,
   operationName: string,
-  options?: Options
+  options?: Options,
+  parentField?: FieldNode
 ): number {
   if (depthSoFar > maxDepth) {
     context.reportError(
@@ -103,8 +106,19 @@ function determineDepth(
       if (shouldIgnore || !node.selectionSet) {
         return 0
       }
+
+      let depthToAdd = 1
+      if (options?.cursorConnectionSpecSupport) {
+        if (
+          node.name.value === 'edges' ||
+          (parentField?.name.value === 'edges' && node.name.value === 'node')
+        ) {
+          depthToAdd = 0
+        }
+      }
+
       return (
-        1 +
+        depthToAdd +
         Math.max(
           ...node.selectionSet.selections.map((selection) =>
             determineDepth(
@@ -114,7 +128,8 @@ function determineDepth(
               maxDepth,
               context,
               operationName,
-              options
+              options,
+              node
             )
           )
         )

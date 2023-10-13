@@ -20,6 +20,7 @@ const schema = buildSchema(`
     user1: Human
     user2: Human
     user3: Human
+    users(first: Int, after: String): HumanConnection!
   }
 
   type Human {
@@ -27,6 +28,23 @@ const schema = buildSchema(`
     email: String!
     address: Address
     pets: [Pet]
+  }
+
+  type HumanConnection {
+    edges: [HumanEdge]
+    pageInfo: PageInfo! 
+  }
+
+  type HumanEdge {
+    node: Human
+    cursor: String!
+  }
+
+  type PageInfo {
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+    startCursor: String
+    endCursor: String
   }
 
   interface Pet {
@@ -329,5 +347,92 @@ describe('[Default]', () => {
       depthLimit(10, options, (depths) => expect(d).toEqual(depths))
     ])
     expect(errors.length).toBe(0)
+  })
+})
+
+describe('[Cursor Connection Spec Support]', () => {
+  test('disabled', () => {
+    const query = `
+      query read1 {
+        users { edges { node { address { city } } } }
+      }
+    `
+    const document = createDocument(query)
+    const options = {
+      cursorConnectionSpecSupport: false
+    }
+
+    const errors = validate(schema, document, [
+      ...specifiedRules,
+      depthLimit(10, options, (depths) => expect(depths.read1).toEqual(4))
+    ])
+    expect(errors.length).toBe(0)
+  })
+
+  describe('enabled', () => {
+    const options = {
+      cursorConnectionSpecSupport: true
+    }
+
+    test('node object with flat value only', () => {
+      const query = `
+        query read1 {
+          users { edges { node { name } } }
+        }
+      `
+      const document = createDocument(query)
+
+      const errors = validate(schema, document, [
+        ...specifiedRules,
+        depthLimit(10, options, (depths) => expect(depths.read1).toEqual(1))
+      ])
+      expect(errors.length).toBe(0)
+    })
+
+    test('node object with deeper nesting', () => {
+      const query = `
+        query read1 {
+          users { edges { node { name, address { city } } } }
+        }
+      `
+      const document = createDocument(query)
+
+      const errors = validate(schema, document, [
+        ...specifiedRules,
+        depthLimit(10, options, (depths) => expect(depths.read1).toEqual(2))
+      ])
+      expect(errors.length).toBe(0)
+    })
+
+    test('Connection.pageInfo - pageInfo is an object, so it is counted as another level', () => {
+      const query = `
+        query read1 {
+          users { pageInfo { hasNextPage } }
+        }
+      `
+      const document = createDocument(query)
+
+      const errors = validate(schema, document, [
+        ...specifiedRules,
+        depthLimit(10, options, (depths) => expect(depths.read1).toEqual(2))
+      ])
+      expect(errors.length).toBe(0)
+    })
+
+    test('Edge.cursor - cursor is a flat value, so no level added', () => {
+      const query = `
+        query read1 {
+          users { edges { cursor } }
+        }
+      `
+      const document = createDocument(query)
+
+      const errors = validate(schema, document, [
+        ...specifiedRules,
+        depthLimit(10, options, (depths) => expect(depths.read1).toEqual(1))
+      ])
+      console.log(errors)
+      expect(errors.length).toBe(0)
+    })
   })
 })
