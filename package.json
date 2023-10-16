@@ -17,7 +17,8 @@
     "format": "pnpm prettier --check \"src/**/*.{ts,js}\" -w",
     "ls:pack": "npm pack --dry-run",
     "prepare": "ts-patch install -s",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "release": "bumpp"
   },
   "packageManager": "pnpm@8.9.0",
   "repository": {
@@ -66,6 +67,7 @@
     "@types/lodash": "^4.14.199",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.8.6",
+    "bumpp": "^9.2.0",
     "cross-env": "^7.0.3",
     "defu": "^6.1.2",
     "del": "^7.1.0",
