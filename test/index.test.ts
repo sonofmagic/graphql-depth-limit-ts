@@ -384,7 +384,7 @@ describe('[Cursor Connection Spec Support]', () => {
 
       const errors = validate(schema, document, [
         ...specifiedRules,
-        depthLimit(10, options, (depths) => expect(depths.read1).toEqual(1))
+        depthLimit(1, options, (depths) => expect(depths.read1).toEqual(1))
       ])
       expect(errors.length).toBe(0)
     })
@@ -399,7 +399,7 @@ describe('[Cursor Connection Spec Support]', () => {
 
       const errors = validate(schema, document, [
         ...specifiedRules,
-        depthLimit(10, options, (depths) => expect(depths.read1).toEqual(2))
+        depthLimit(2, options, (depths) => expect(depths.read1).toEqual(2))
       ])
       expect(errors.length).toBe(0)
     })
@@ -414,7 +414,7 @@ describe('[Cursor Connection Spec Support]', () => {
 
       const errors = validate(schema, document, [
         ...specifiedRules,
-        depthLimit(10, options, (depths) => expect(depths.read1).toEqual(2))
+        depthLimit(2, options, (depths) => expect(depths.read1).toEqual(2))
       ])
       expect(errors.length).toBe(0)
     })
@@ -429,7 +429,7 @@ describe('[Cursor Connection Spec Support]', () => {
 
       const errors = validate(schema, document, [
         ...specifiedRules,
-        depthLimit(10, options, (depths) => expect(depths.read1).toEqual(1))
+        depthLimit(1, options, (depths) => expect(depths.read1).toEqual(1))
       ])
       console.log(errors)
       expect(errors.length).toBe(0)
