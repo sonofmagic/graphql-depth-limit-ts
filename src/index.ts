@@ -124,7 +124,7 @@ function determineDepth(
             determineDepth(
               selection,
               fragments,
-              depthSoFar + 1,
+              depthSoFar + depthToAdd,
               maxDepth,
               context,
               operationName,
