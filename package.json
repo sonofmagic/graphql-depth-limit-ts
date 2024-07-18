@@ -20,7 +20,7 @@
     "preinstall": "npx only-allow pnpm",
     "release": "bumpp"
   },
-  "packageManager": "pnpm@8.9.0",
+  "packageManager": "pnpm@8.15.9",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonofmagic/graphql-depth-limit-ts.git"
