@@ -103,7 +103,7 @@ devDependencies:
     version: 5.2.2
   typescript-transform-paths:
     specifier: ^3.4.6
-    version: 3.4.6(typescript@5.2.2)
+    version: 3.5.3(typescript@5.2.2)
 
 packages:
 
@@ -3921,6 +3921,13 @@ packages:
       brace-expansion: 2.0.1
     dev: true
 
+  /minimatch@9.0.5:
+    resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
+    engines: {node: '>=16 || 14 >=14.17'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: true
@@ -4884,12 +4891,12 @@ packages:
       is-typed-array: 1.1.12
     dev: true
 
-  /typescript-transform-paths@3.4.6(typescript@5.2.2):
-    resolution: {integrity: sha512-qdgpCk9oRHkIBhznxaHAapCFapJt5e4FbFik7Y4qdqtp6VyC3smAIPoDEIkjZ2eiF7x5+QxUPYNwJAtw0thsTw==}
+  /typescript-transform-paths@3.5.3(typescript@5.2.2):
+    resolution: {integrity: sha512-5y2l2iPKNHKOj08/1i+02+ljBVUhWcXQLXomiOXCmNpiTuSxIkj0dM1LUE7OOAt53+/6KidY+sFTCP781J64Eg==}
     peerDependencies:
       typescript: '>=3.6.5'
     dependencies:
-      minimatch: 3.1.2
+      minimatch: 9.0.5
       typescript: 5.2.2
     dev: true
 
