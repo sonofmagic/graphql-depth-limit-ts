@@ -37,7 +37,7 @@ devDependencies:
     version: 29.5.5
   '@types/lodash':
     specifier: ^4.14.199
-    version: 4.14.199
+    version: 4.17.15
   '@types/lodash-es':
     specifier: ^4.17.9
     version: 4.17.9
@@ -1241,11 +1241,11 @@ packages:
   /@types/lodash-es@4.17.9:
     resolution: {integrity: sha512-ZTcmhiI3NNU7dEvWLZJkzG6ao49zOIjEgIE0RgV7wbPxU0f2xT3VSAHw2gmst8swH6V0YkLRGp4qPlX/6I90MQ==}
     dependencies:
-      '@types/lodash': 4.14.199
+      '@types/lodash': 4.17.15
     dev: true
 
-  /@types/lodash@4.14.199:
-    resolution: {integrity: sha512-Vrjz5N5Ia4SEzWWgIVwnHNEnb1UE1XMkvY5DGXrAeOGE9imk0hgTHh5GyDjLDJi9OTCn9oo9dXH1uToK1VRfrg==}
+  /@types/lodash@4.17.15:
+    resolution: {integrity: sha512-w/P33JFeySuhN6JLkysYUK2gEmy9kHHFN7E8ro0tkfmlDOgxBDzWEZ/J8cWA+fHqFevpswDTFZnDx+R9lbL6xw==}
     dev: true
 
   /@types/node@20.8.6:
